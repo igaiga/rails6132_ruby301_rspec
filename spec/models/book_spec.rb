@@ -15,4 +15,12 @@ RSpec.describe Book, type: :model do
       end
     end
   end
+  describe "Book#take_pictures" do
+    context "呼び出しすとき" do
+      it "例外が投げられること" do
+        book = Book.new
+        expect{ book.take_pictures }.to raise_error(RuntimeError, "写真撮影はご遠慮ください")
+      end
+    end
+  end
 end
