@@ -28,6 +28,7 @@ RSpec.describe Book, type: :model do
       it "チェキが返ること" do
         book = Book.new
         allow(book).to receive(:lucky?).and_return(true)
+        expect(book).to receive(:lucky?) # 確認するメソッド呼び出しを実行する前に書く
         expect(book.bonus).to eq("著者サイン入りチェキ")
       end
     end
