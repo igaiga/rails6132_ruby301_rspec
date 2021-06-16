@@ -23,4 +23,14 @@ RSpec.describe Book, type: :model do
       end
     end
   end
+
+  describe "Book#has_pdf?" do
+    context "variationsにPDFを持っているとき" do
+      it "trueが返ること" do
+        book = Book.new
+        book.variations << Variation.new(kind: "PDF")
+        expect(book.has_pdf?).to eq(true)
+      end
+    end
+  end
 end
